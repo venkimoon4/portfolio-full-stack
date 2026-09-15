@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venkatesh S M — Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #161616;
+        --panel: #212121;
+        --card: #262626;
+        --card-2: #2a2a2a;
+        --border: #333333;
+        --text: #f2f2f0;
+        --text-dim: #999999;
+        --text-dimmer: #6b6b6b;
+        --accent: #4ade80;
+        --accent-dim: rgba(74, 222, 128, 0.12);
+        --radius: 14px;
+        --mono: "JetBrains Mono", monospace;
+        --sans: "Inter", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .hero-inner {
+        padding: 0 44px;
+      }
+      section {
+        padding: 100px 0;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--mono);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      /* focus visibility */
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      /* ---------- HERO PANEL ---------- */
+      .hero-panel {
+        background: var(--panel);
+        border-radius: 20px;
+        margin: 24px auto 0;
+        max-width: 1400px;
+        padding: 36px 44px 56px;
+        position: relative;
+        overflow: hidden;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 70px;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .logo {
+        font-family: var(--mono);
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .logo span {
+        color: var(--text-dim);
+        font-weight: 400;
+      }
+      .nav-links {
+        display: flex;
+        gap: 34px;
+        font-family: var(--mono);
+        font-size: 14px;
+        color: var(--text-dim);
+      }
+      .nav-links a:hover {
+        color: var(--text);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border);
+        color: var(--text-dim);
+      }
+      .icon-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .badge {
+        display: inline-block;
+        background: var(--accent);
+        color: #111;
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 6px 14px;
+        border-radius: 6px;
+        margin-bottom: 24px;
+      }
+      .hero-copy h1 {
+        font-size: 44px;
+        line-height: 1.18;
+        margin-bottom: 20px;
+      }
+      .hero-copy p {
+        color: var(--text-dim);
+        max-width: 420px;
+        margin-bottom: 32px;
+        font-size: 15px;
+      }
+      .cta {
+        font-family: var(--mono);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid var(--accent);
+        padding-bottom: 4px;
+      }
+      .stats {
+        display: flex;
+        gap: 56px;
+        margin-top: 64px;
+      }
+      .stat-num {
+        font-family: var(--mono);
+        font-size: 34px;
+        font-weight: 700;
+      }
+      .stat-label {
+        font-size: 12px;
+        color: var(--text-dim);
+        line-height: 1.3;
+        margin-top: 4px;
+      }
+
+      /* terminal illustration */
+      .hero-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .terminal {
+        background: #1a1a1a;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        width: 100%;
+        max-width: 440px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+      }
+      .terminal-bar {
+        display: flex;
+        gap: 7px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+      }
+      .dot.red {
+        background: #ff5f56;
+      }
+      .dot.yellow {
+        background: #ffbd2e;
+      }
+      .dot.green {
+        background: #27c93f;
+      }
+      .terminal-body {
+        padding: 22px 20px 26px;
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: #9adfb3;
+        line-height: 1.85;
+      }
+      .terminal-body .dim {
+        color: var(--text-dimmer);
+      }
+      .terminal-body .kw {
+        color: #c586c0;
+      }
+      .terminal-body .str {
+        color: #e3c98a;
+      }
+      .terminal-body .fn {
+        color: #4ade80;
+      }
+      .float-chip {
+        position: absolute;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 9px 13px;
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+      }
+      .float-chip .dotc {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .chip-1 {
+        top: 8%;
+        right: -4%;
+      }
+      .chip-2 {
+        bottom: 12%;
+        left: -6%;
+      }
+
+      /* ---------- SECTION LABEL ---------- */
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+      .section-head {
+        margin-bottom: 56px;
+      }
+      .section-head h2 {
+        font-size: 30px;
+      }
+      .section-head p {
+        color: var(--text-dim);
+        margin-top: 10px;
+        max-width: 480px;
+      }
+
+      /* ---------- SERVICES ---------- */
+      .services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .service-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 30px;
+      }
+      .service-card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .service-card p {
+        color: var(--text-dim);
+        font-size: 14px;
+        margin-bottom: 26px;
+      }
+      .service-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text-dimmer);
+        border-top: 1px solid var(--border);
+        padding-top: 16px;
+      }
+      .service-meta .ic {
+        color: var(--accent);
+        font-size: 16px;
+      }
+
+      /* ---------- ABOUT ---------- */
+      .about {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 64px;
+      }
+      .about h2 {
+        font-size: 30px;
+        margin-bottom: 22px;
+        line-height: 1.3;
+      }
+      .about .lede {
+        font-size: 16px;
+        color: var(--text);
+        font-style: italic;
+        margin-bottom: 18px;
+      }
+      .about p.body {
+        color: var(--text-dim);
+        font-size: 14.5px;
+        margin-bottom: 16px;
+      }
+      .stack-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+      }
+      .stack-pill {
+        font-family: var(--mono);
+        font-size: 12px;
+        border: 1px solid var(--border);
+        padding: 7px 13px;
+        border-radius: 20px;
+        color: var(--text-dim);
+      }
+
+      /* ---------- PROJECTS ---------- */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .project-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        min-height: 260px;
+        position: relative;
+        overflow: hidden;
+      }
+      .project-card.placeholder {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-style: dashed;
+        color: var(--text-dimmer);
+      }
+      .project-card.placeholder .plus {
+        font-size: 26px;
+        color: var(--accent);
+        margin-bottom: 10px;
+        font-family: var(--mono);
+      }
+      .project-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: auto;
+      }
+      .project-name {
+        font-family: var(--mono);
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .tag-row {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .tag {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        background: var(--card-2);
+        color: var(--text-dim);
+        padding: 4px 8px;
+        border-radius: 5px;
+      }
+      .project-desc {
+        color: var(--text-dim);
+        font-size: 13.5px;
+        margin-top: 18px;
+      }
+
+      /* ---------- FOOTER ---------- */
+      footer {
+        padding: 60px 0 40px;
+        border-top: 1px solid var(--border);
+        text-align: center;
+        color: var(--text-dimmer);
+        font-family: var(--mono);
+        font-size: 13px;
+      }
+      footer .cta {
+        margin-top: 6px;
+        display: inline-flex;
+      }
+
+      /* ---------- RESPONSIVE ---------- */
+
+      /* Laptop / small desktop */
+      @media (max-width: 1180px) {
+        .wrap {
+          padding: 0 24px;
+        }
+        .hero-inner {
+          padding: 0 32px;
+        }
+        .hero-copy h1 {
+          font-size: 38px;
+        }
+        .stats {
+          gap: 40px;
+        }
+        section {
+          padding: 84px 0;
+        }
+      }
+
+      /* Tablet */
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 56px;
+        }
+        .hero-visual {
+          order: -1;
+        }
+        .terminal {
+          max-width: 400px;
+          margin: 0 auto;
+        }
+        .about {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .nav-links {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          gap: 24px;
+        }
+        section {
+          padding: 68px 0;
+        }
+        .hero-copy h1 {
+          font-size: 34px;
+        }
+        .hero-copy p {
+          max-width: 100%;
+        }
+        .hero-panel {
+          padding: 28px 0 44px;
+        }
+        .hero-inner {
+          padding: 0 28px;
+        }
+        .stats {
+          gap: 32px;
+          flex-wrap: wrap;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 600px) {
+        .wrap {
+          padding: 0 20px;
+        }
+        .hero-inner {
+          padding: 0 20px;
+        }
+        .hero-panel {
+          border-radius: 16px;
+          margin-top: 14px;
+          padding: 22px 0 36px;
+        }
+        .services {
+          grid-template-columns: 1fr;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        nav {
+          margin-bottom: 44px;
+        }
+        .logo {
+          font-size: 16px;
+        }
+        .nav-links {
+          gap: 18px;
+          font-size: 13px;
+        }
+        .nav-right {
+          gap: 14px;
+        }
+        .icon-btn {
+          width: 32px;
+          height: 32px;
+          font-size: 12px;
+        }
+        .hero-copy h1 {
+          font-size: 28px;
+        }
+        .badge {
+          font-size: 11px;
+          padding: 5px 12px;
+        }
+        .stats {
+          gap: 24px 32px;
+          margin-top: 44px;
+        }
+        .stat-num {
+          font-size: 26px;
+        }
+        .stat-label {
+          font-size: 11px;
+        }
+        .terminal {
+          max-width: 100%;
+        }
+        .terminal-body {
+          font-size: 11.5px;
+          padding: 18px 16px 22px;
+        }
+        .float-chip {
+          font-size: 11px;
+          padding: 7px 10px;
+        }
+        .chip-1 {
+          top: -6%;
+          right: 2%;
+        }
+        .chip-2 {
+          bottom: -6%;
+          left: 2%;
+        }
+        .section-head {
+          margin-bottom: 36px;
+        }
+        .section-head h2 {
+          font-size: 24px;
+        }
+        .about h2 {
+          font-size: 24px;
+        }
+        .service-card {
+          padding: 24px;
+        }
+        .project-card {
+          padding: 22px;
+          min-height: auto;
+        }
+        .stack-list {
+          gap: 8px;
+        }
+        .stack-pill {
+          font-size: 11px;
+          padding: 6px 11px;
+        }
+        footer {
+          padding: 48px 0 32px;
+        }
+      }
+
+      /* Small mobile */
+      @media (max-width: 380px) {
+        .stats {
+          gap: 20px 28px;
+        }
+        .nav-links {
+          gap: 14px;
+          font-size: 12px;
+        }
+        .hero-copy h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero-panel wrap" style="padding-left: 0; padding-right: 0">
+      <div class="hero-inner">
+        <nav>
+          <div class="logo">Venkatesh <span>S M</span></div>
+          <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="nav-right">
+            <a
+              class="icon-btn"
+              href="https://github.com/venkimoon4"
+              aria-label="GitHub"
+              title="GitHub"
+              >GH</a
+            >
+            <a
+              class="icon-btn"
+              href="https://in.linkedin.com/in/venkatesh-s-m"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              >in</a
+            >
+            <a
+              class="icon-btn"
+              href="mailto:venkimoon4@gmail.com"
+              aria-label="Email"
+              title="Email"
+              >@</a
+            >
+            <a
+              class="icon-btn"
+              href="tel:+919353221738"
+              aria-label="Phone"
+              title="Phone"
+              >☎</a
+            >
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="badge">Full Stack Developer</span>
+            <h1>Code that scales.<br />Systems that don't sleep.</h1>
+            <p>
+              I build the payment infrastructure that fintech runs on —
+              high-throughput APIs, event-driven services, and the kind of
+              backend you never have to think about because it just works.
+            </p>
+            <a class="cta" href="#contact">LET'S TALK →</a>
+
+            <div class="stats">
+              <div>
+                <div class="stat-num">2+</div>
+                <div class="stat-label">YEARS<br />EXPERIENCE</div>
+              </div>
+              <div>
+                <div class="stat-num">10+</div>
+                <div class="stat-label">
+                  PAYMENT GATEWAYS<br />&amp; VENDORS INTEGRATED
+                </div>
+              </div>
+              <div>
+                <div class="stat-num">6M+</div>
+                <div class="stat-label">
+                  CREDIT &amp; DEBIT<br />TRANSACTIONS HANDLED
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="terminal">
+              <div class="terminal-bar">
+                <span class="dot red"></span><span class="dot yellow"></span
+                ><span class="dot green"></span>
+              </div>
+              <div class="terminal-body">
+                <div><span class="dim">$</span> node server.js</div>
+                <div>&nbsp;</div>
+                <div>
+                  <span class="kw">const</span> payment =
+                  <span class="kw">await</span>
+                  <span class="fn">gateway</span>.<span class="fn">process</span
+                  >({
+                </div>
+                <div>&nbsp;&nbsp;amount: <span class="str">10000</span>,</div>
+                <div>
+                  &nbsp;&nbsp;idempotencyKey:
+                  <span class="str">"txn_8841"</span>
+                </div>
+                <div>});</div>
+                <div>&nbsp;</div>
+                <div><span class="dim">✓ queue connected (RabbitMQ)</span></div>
+                <div><span class="dim">✓ cache warm (Redis)</span></div>
+                <div><span class="dim">✓ webhook verified · 200 OK</span></div>
+              </div>
+            </div>
+            <div class="float-chip chip-1">
+              <span class="dotc"></span> Node.js
+            </div>
+            <div class="float-chip chip-2">
+              <span class="dotc"></span> MongoDB
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What I do</div>
+          <h2>Backend systems, built to hold up under load</h2>
+          <p>
+            From API integrations to secure payment infrastructure — here's
+            where I spend most of my time.
+          </p>
+        </div>
+        <div class="services">
+          <div class="service-card">
+            <h3>API Architecture</h3>
+            <p>
+              Scalable REST APIs and microservices built with Node.js and
+              Express, designed for high-throughput financial workloads.
+            </p>
+            <div class="service-meta">
+              <span>Node.js · Express · Microservices</span>
+              <span class="ic">{ }</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <h3>Payments &amp; Integrations</h3>
+            <p>
+              Connecting payment gateways, payouts, KYC and credit bureau
+              services — Cashfree, Razorpay, PayU, PhonePe, Axis, and more.
+            </p>
+            <div class="service-meta">
+              <span>10+ providers integrated</span> <span class="ic">⇄</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <h3>Security &amp; Reliability</h3>
+            <p>
+              Hybrid RSA + AES encryption, queue-based retries, and idempotency
+              checks to keep sensitive financial data safe at scale.
+            </p>
+            <div class="service-meta">
+              <span>RabbitMQ · Redis</span> <span class="ic">◆</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <h3>Dashboards &amp; Web Apps</h3>
+            <p>
+              Admin dashboards and customer-facing web applications built with
+              React and Tailwind CSS, focused on clean interfaces that make
+              complex data easy to manage.
+            </p>
+            <div class="service-meta">
+              <span>React.js · Tailwind CSS</span> <span class="ic">▣</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about">
+        <div>
+          <div class="eyebrow">Introduce</div>
+          <h2>Hello! I'm Venkatesh</h2>
+          <div class="stack-list">
+            <span class="stack-pill">JavaScript</span>
+            <span class="stack-pill">TypeScript</span>
+            <span class="stack-pill">Node.js</span>
+            <span class="stack-pill">Express.js</span>
+            <span class="stack-pill">MongoDB</span>
+            <span class="stack-pill">PostgreSQL</span>
+            <span class="stack-pill">RabbitMQ</span>
+            <span class="stack-pill">Redis</span>
+            <span class="stack-pill">React.js</span>
+            <span class="stack-pill">AWS</span>
+            <span class="stack-pill">Firebase</span>
+            <span class="stack-pill">Github</span>
+            <span class="stack-pill">Rest APIs</span>
+            <span class="stack-pill">gRPC</span>
+            <span class="stack-pill">Micro Services</span>
+            <span class="stack-pill">Payment Gateways</span>
+            <span class="stack-pill">Payouts</span>
+            <span class="stack-pill">BBPS</span>
+            <span class="stack-pill">Gift Cards</span>
+            <span class="stack-pill">PPI Card</span>
+            <span class="stack-pill">KYC</span>
+          </div>
+        </div>
+        <div>
+          <p class="lede">
+            Every reliable system begins with an even better architecture.
+          </p>
+          <p class="body">
+            I'm a full stack developer based in Hyderabad, currently working as
+            an SDE-2 at Payinstacard, where I architect event-driven
+            microservices that power high-volume fintech transaction flows.
+          </p>
+          <p class="body">
+            My journey started as a backend intern at Skygoal, where I grew into
+            building scalable bill payment systems and admin dashboards — and
+            it's shaped how I think about backend engineering today: security
+            first, performance always, and nothing ships without handling the
+            edge case.
+          </p>
+          <p class="body">
+            Outside of payment rails and message queues, I'm quietly obsessed
+            with making systems that are boring in the best way — the kind that
+            just work, transaction after transaction.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Latest Work</div>
+          <h2>Projects</h2>
+          <p>
+            Fintech platforms, booking systems, and investment tools — a look at
+            what I've been building.
+          </p>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-top">
+              <div class="project-name">Payinstacard</div>
+            </div>
+            <p class="project-desc">
+              A fintech platform for rent, tuition, and BBPS utility bill
+              payments, gift card purchases, and a PPI wallet — with credit
+              bureau services giving users access to their credit score and
+              insights. Handles secure, real-time transactions across multiple
+              payment channels with reliable wallet balance management.
+            </p>
+            <div class="tag-row" style="margin-top: 18px">
+              <span class="tag">Node.js</span><span class="tag">Express</span
+              ><span class="tag">MongoDB</span><span class="tag">Redis</span
+              ><span class="tag">RabbitMQ</span
+              ><span class="tag">Microservices</span
+              ><span class="tag">React</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-top">
+              <div class="project-name">
+                Agent Bill Payment &amp; Wallet System
+              </div>
+            </div>
+            <p class="project-desc">
+              A B2B SaaS platform letting agents top up wallets via payment
+              gateways and process BBPS bill payments and vendor payouts on
+              behalf of end customers. Real-time wallet management with secure
+              credit/debit processing built to hold up under high transaction
+              volumes, backed by auditable ledgers for every wallet transaction
+              and vendor settlement.
+            </p>
+            <div class="tag-row" style="margin-top: 18px">
+              <span class="tag">Node.js</span><span class="tag">Express</span
+              ><span class="tag">MongoDB</span><span class="tag">Redis</span
+              ><span class="tag">RabbitMQ</span
+              ><span class="tag">Microservices</span
+              ><span class="tag">React</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-top">
+              <div class="project-name">Sports Club Booking Platform</div>
+            </div>
+            <p class="project-desc">
+              A multi-tenant admin dashboard and booking platform where admins
+              onboard club owners across sports categories to manage their
+              venues. Club owners manage bookings, availability, and slot
+              scheduling, while customers browse clubs and book available game
+              slots in real time.
+            </p>
+            <div class="tag-row" style="margin-top: 18px">
+              <span class="tag">React</span><span class="tag">Tailwind</span
+              ><span class="tag">Node.js</span><span class="tag">Express</span
+              ><span class="tag">MongoDB</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-top">
+              <div class="project-name">Real Estate Investment Platform</div>
+            </div>
+            <p class="project-desc">
+              APIs powering an admin dashboard for managing real estate projects
+              available for customer investment, with full CRUD operations to
+              keep project listings accurate and up to date.
+            </p>
+            <div class="tag-row" style="margin-top: 18px">
+              <span class="tag">React</span><span class="tag">Tailwind</span
+              ><span class="tag">Node.js</span><span class="tag">Express</span
+              ><span class="tag">MongoDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div>Available for backend &amp; full-stack roles</div>
+      <div>
+        <a class="cta" href="mailto:venkimoon4@gmail.com">
+          venkimoon4@gmail.com
+        </a>
+        <span> · </span>
+        <a class="cta" href="tel:+919353221738"> +91 93532 21738 </a>
+      </div>
+    </footer>
+  </body>
+</html>
