@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Venkatesh S M — Full Stack Developer</title>
+    <meta name="theme-color" content="#161616" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -70,7 +71,9 @@
 
       /* focus visibility */
       a:focus-visible,
-      button:focus-visible {
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible {
         outline: 2px solid var(--accent);
         outline-offset: 3px;
       }
@@ -176,6 +179,11 @@
         gap: 8px;
         border-bottom: 1px solid var(--accent);
         padding-bottom: 4px;
+        background: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        cursor: pointer;
       }
       .stats {
         display: flex;
@@ -369,6 +377,123 @@
         color: var(--text-dim);
       }
 
+      /* ---------- EXPERIENCE ---------- */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 200px 1px 1fr;
+        gap: 0 36px;
+        padding-bottom: 52px;
+        position: relative;
+      }
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+      .timeline-date {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--text-dim);
+        padding-top: 4px;
+      }
+      .timeline-date .current {
+        color: var(--accent);
+      }
+      .timeline-rail {
+        position: relative;
+        background: var(--border);
+      }
+      .timeline-rail::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: -5px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 2px solid var(--accent);
+      }
+      .timeline-item:last-child .timeline-rail {
+        background: transparent;
+      }
+      .timeline-body h3 {
+        font-size: 19px;
+        margin-bottom: 4px;
+        font-weight: 700;
+      }
+      .timeline-role {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--accent);
+        margin-bottom: 16px;
+      }
+      .timeline-body ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .timeline-body li {
+        color: var(--text-dim);
+        font-size: 14px;
+        padding-left: 18px;
+        position: relative;
+      }
+      .timeline-body li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      /* ---------- EDUCATION ---------- */
+      .edu-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px 34px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: center;
+      }
+      .edu-card h3 {
+        font-size: 19px;
+        margin-bottom: 6px;
+      }
+      .edu-card .edu-degree {
+        color: var(--text-dim);
+        font-size: 14.5px;
+        margin-bottom: 10px;
+      }
+      .edu-card .edu-loc {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: var(--text-dimmer);
+      }
+      .edu-score {
+        font-family: var(--mono);
+        text-align: right;
+      }
+      .edu-score .num {
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .edu-score .lbl {
+        font-size: 11px;
+        color: var(--text-dim);
+        margin-top: 2px;
+      }
+
       /* ---------- PROJECTS ---------- */
       .projects-grid {
         display: grid;
@@ -430,18 +555,158 @@
         margin-top: 18px;
       }
 
+      /* ---------- CONTACT ---------- */
+      #contact {
+        padding-bottom: 60px;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .contact-info h2 {
+        font-size: 30px;
+        line-height: 1.3;
+        margin-bottom: 16px;
+      }
+      .contact-info p {
+        color: var(--text-dim);
+        font-size: 14.5px;
+        max-width: 380px;
+        margin-bottom: 32px;
+      }
+      .contact-direct {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .contact-direct a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--mono);
+        font-size: 14px;
+        color: var(--text);
+      }
+      .contact-direct a:hover {
+        color: var(--accent);
+      }
+      .contact-direct .ic {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+
+      .contact-form {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 36px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .field label {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text-dim);
+      }
+      .field .optional {
+        color: var(--text-dimmer);
+      }
+      .field input,
+      .field textarea {
+        background: var(--card-2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px;
+        color: var(--text);
+        font-family: var(--sans);
+        font-size: 14px;
+        width: 100%;
+      }
+      .field input::placeholder,
+      .field textarea::placeholder {
+        color: var(--text-dimmer);
+      }
+      .field input:focus,
+      .field textarea:focus {
+        border-color: var(--accent);
+        outline: none;
+      }
+      .field textarea {
+        resize: vertical;
+        min-height: 90px;
+      }
+      .mail-select {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+      .mail-opt {
+        font-family: var(--mono);
+        font-size: 12px;
+        border: 1px solid var(--border);
+        background: var(--card-2);
+        color: var(--text-dim);
+        padding: 8px 13px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .mail-opt[aria-pressed="true"] {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-dim);
+      }
+      .submit-btn {
+        width: 100%;
+        background: var(--accent);
+        color: #111;
+        border: none;
+        border-radius: 8px;
+        padding: 14px 18px;
+        font-family: var(--mono);
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .submit-btn:hover {
+        opacity: 0.9;
+      }
+      .form-note {
+        font-family: var(--mono);
+        font-size: 11.5px;
+        color: var(--text-dimmer);
+        margin-top: 12px;
+        text-align: center;
+      }
+
       /* ---------- FOOTER ---------- */
       footer {
-        padding: 60px 0 40px;
+        padding: 40px 0;
         border-top: 1px solid var(--border);
         text-align: center;
         color: var(--text-dimmer);
         font-family: var(--mono);
-        font-size: 13px;
-      }
-      footer .cta {
-        margin-top: 6px;
-        display: inline-flex;
+        font-size: 12.5px;
       }
 
       /* ---------- RESPONSIVE ---------- */
@@ -506,6 +771,28 @@
         .stats {
           gap: 32px;
           flex-wrap: wrap;
+        }
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 8px;
+          padding-left: 20px;
+        }
+        .timeline-rail {
+          display: none;
+        }
+        .timeline-date {
+          padding-top: 0;
+        }
+        .edu-card {
+          grid-template-columns: 1fr;
+          text-align: left;
+        }
+        .edu-score {
+          text-align: left;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
         }
       }
 
@@ -605,8 +892,15 @@
           font-size: 11px;
           padding: 6px 11px;
         }
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        .contact-form {
+          padding: 24px;
+        }
         footer {
-          padding: 48px 0 32px;
+          padding: 32px 0;
         }
       }
 
@@ -631,7 +925,7 @@
         <nav>
           <div class="logo">Venkatesh <span>S M</span></div>
           <div class="nav-links">
-            <a href="#services">Services</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
@@ -848,6 +1142,121 @@
       </div>
     </section>
 
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Where I've worked</div>
+          <h2>Experience</h2>
+          <p>
+            Two years, two companies, one throughline: fintech systems that have
+            to be right every single time.
+          </p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">
+              Jan 2026 — <span class="current">Present</span>
+            </div>
+            <div class="timeline-rail"></div>
+            <div class="timeline-body">
+              <h3>Payinstacard</h3>
+              <div class="timeline-role">
+                Software Development Engineer – 2 (SDE-2) · Hyderabad, Telangana
+              </div>
+              <ul>
+                <li>
+                  Architected and shipped event-driven microservices in
+                  Node.js/Express.js, using RabbitMQ for asynchronous processing
+                  and inter-service communication to reliably handle high-volume
+                  fintech transaction flows.
+                </li>
+                <li>
+                  Designed scalable, robust REST APIs for high-throughput
+                  financial operations, keeping latency low and performance
+                  consistent under peak load.
+                </li>
+                <li>
+                  Integrated 10+ third-party financial APIs — Cashfree,
+                  Razorpay, PayU, PhonePe, Lyra, Pine Labs, Axis Payouts, BBPS,
+                  Prepaid Recharge, Gift Cards, and Experian Credit Bureau —
+                  enabling multi-channel payment and credit workflows.
+                </li>
+                <li>
+                  Implemented hybrid RSA + AES encryption to secure sensitive
+                  financial data in transit and at rest, meeting industry
+                  security standards.
+                </li>
+                <li>
+                  Engineered fault-tolerant payment infrastructure with
+                  queue-based retries and idempotency checks for reliable
+                  large-scale transaction processing.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">May 2024 — Jan 2026</div>
+            <div class="timeline-rail"></div>
+            <div class="timeline-body">
+              <h3>Skygoal</h3>
+              <div class="timeline-role">
+                Back End Developer Intern → Back End Developer (Node.js) → SDE-2
+                · Hyderabad, Telangana
+              </div>
+              <ul>
+                <li>
+                  Designed secure REST APIs integrating Firebase
+                  (Authentication, Realtime Database) to support core product
+                  features.
+                </li>
+                <li>
+                  Architected a scalable bill payment system for agent channels
+                  — wallet top-ups and BBPS bill processing with secure
+                  credit/debit handling and ledger reconciliation.
+                </li>
+                <li>
+                  Built the payment system on RabbitMQ for asynchronous message
+                  processing and Redis for caching, cutting latency under load.
+                </li>
+                <li>
+                  Built an admin dashboard with React and Tailwind CSS,
+                  delivering a clean interface that followed performance and
+                  security best practices.
+                </li>
+                <li>
+                  Worked cross-functionally with frontend, backend, and product
+                  teams to integrate systems and ship production-ready features.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Foundation</div>
+          <h2>Education</h2>
+        </div>
+        <div class="edu-card">
+          <div>
+            <h3>Sharnbasva University</h3>
+            <div class="edu-degree">
+              Bachelor of Computer Applications (BCA) · 2020 – 2023
+            </div>
+            <div class="edu-loc">Kalaburagi, Karnataka, India</div>
+          </div>
+          <div class="edu-score">
+            <div class="num">8.87</div>
+            <div class="lbl">CGPA / 10</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="projects">
       <div class="wrap">
         <div class="section-head">
@@ -936,15 +1345,207 @@
       </div>
     </section>
 
-    <footer id="contact">
-      <div>Available for backend &amp; full-stack roles</div>
+    <section id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-info">
+          <div class="eyebrow">Get in touch</div>
+          <h2>Available for backend &amp; full-stack roles</h2>
+          <p>
+            Fill in the form and pick where you'd like it sent — it'll open up
+            in your mail app with everything pre-filled, ready to send.
+          </p>
+          <div class="contact-direct">
+            <a href="mailto:venkimoon4@gmail.com"
+              ><span class="ic">@</span> venkimoon4@gmail.com</a
+            >
+            <a href="tel:+919353221738"
+              ><span class="ic">☎</span> +91 93532 21738</a
+            >
+            <a href="https://in.linkedin.com/in/venkatesh-s-m"
+              ><span class="ic">in</span> linkedin.com/in/venkatesh-s-m</a
+            >
+            <a href="https://github.com/venkimoon4"
+              ><span class="ic">GH</span> github.com/venkimoon4</a
+            >
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="cf-name">Your name</label>
+              <input
+                type="text"
+                id="cf-name"
+                name="name"
+                placeholder="Jane Doe"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="cf-company">Company name</label>
+              <input
+                type="text"
+                id="cf-company"
+                name="company"
+                placeholder="Acme Inc."
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-email">Your email</label>
+            <input
+              type="email"
+              id="cf-email"
+              name="email"
+              placeholder="jane@acme.com"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="cf-note"
+              >Note <span class="optional">(optional)</span></label
+            >
+            <textarea
+              id="cf-note"
+              name="note"
+              placeholder="What's the role, and what should I know?"
+            ></textarea>
+          </div>
+
+          <div class="field" style="margin-bottom: 10px">
+            <label>Send with</label>
+          </div>
+          <div class="mail-select" role="group" aria-label="Choose mail app">
+            <button
+              type="button"
+              class="mail-opt"
+              data-app="default"
+              aria-pressed="true"
+            >
+              Default mail app
+            </button>
+            <button type="button" class="mail-opt" data-app="gmail">
+              Gmail
+            </button>
+            <button type="button" class="mail-opt" data-app="outlook">
+              Outlook
+            </button>
+            <button type="button" class="mail-opt" data-app="yahoo">
+              Yahoo Mail
+            </button>
+          </div>
+
+          <button type="submit" class="submit-btn">Send message →</button>
+          <div class="form-note">
+            Opens your chosen mail app with this message addressed to
+            venkimoon4@gmail.com — nothing is sent from this page.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
       <div>
-        <a class="cta" href="mailto:venkimoon4@gmail.com">
-          venkimoon4@gmail.com
-        </a>
-        <span> · </span>
-        <a class="cta" href="tel:+919353221738"> +91 93532 21738 </a>
+        © 2026 Venkatesh S M — Built with Node.js energy, deployed with care.
       </div>
     </footer>
+
+    <script>
+      (function () {
+        var TO = "venkimoon4@gmail.com";
+        var selectedApp = "default";
+
+        var mailButtons = document.querySelectorAll(".mail-opt");
+        mailButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            mailButtons.forEach(function (b) {
+              b.setAttribute("aria-pressed", "false");
+            });
+            btn.setAttribute("aria-pressed", "true");
+            selectedApp = btn.getAttribute("data-app");
+          });
+        });
+
+        function buildUrl(app, to, subject, body) {
+          var encSubject = encodeURIComponent(subject);
+          var encBody = encodeURIComponent(body);
+          var encTo = encodeURIComponent(to);
+          switch (app) {
+            case "gmail":
+              return (
+                "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+                encTo +
+                "&su=" +
+                encSubject +
+                "&body=" +
+                encBody
+              );
+            case "outlook":
+              return (
+                "https://outlook.live.com/mail/0/deeplink/compose?to=" +
+                encTo +
+                "&subject=" +
+                encSubject +
+                "&body=" +
+                encBody
+              );
+            case "yahoo":
+              return (
+                "https://compose.mail.yahoo.com/?to=" +
+                encTo +
+                "&subject=" +
+                encSubject +
+                "&body=" +
+                encBody
+              );
+            default:
+              return (
+                "mailto:" +
+                encTo +
+                "?subject=" +
+                encSubject +
+                "&body=" +
+                encBody
+              );
+          }
+        }
+
+        var form = document.getElementById("contactForm");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          var name = document.getElementById("cf-name").value.trim();
+          var company = document.getElementById("cf-company").value.trim();
+          var email = document.getElementById("cf-email").value.trim();
+          var note = document.getElementById("cf-note").value.trim();
+
+          if (!name || !company || !email) {
+            alert("Please fill in your name, company name, and email.");
+            return;
+          }
+
+          var subject = "Portfolio inquiry from " + name + " (" + company + ")";
+          var bodyLines = [
+            "Name: " + name,
+            "Company: " + company,
+            "Email: " + email,
+            "",
+            "Note:",
+            note || "(no note provided)",
+          ];
+          var body = bodyLines.join("\n");
+
+          var url = buildUrl(selectedApp, TO, subject, body);
+
+          if (selectedApp === "default") {
+            window.location.href = url;
+          } else {
+            window.open(url, "_blank", "noopener,noreferrer");
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
